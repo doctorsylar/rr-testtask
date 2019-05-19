@@ -8,7 +8,7 @@ module.exports = {
         index: './src/index.js'
     },
     output: {
-        path: __dirname + '/docs',
+        path: path.resolve(__dirname, 'docs'),
         publicPath: './',
         filename: '[name].js'
     },
@@ -41,7 +41,20 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'img'
+                            outputPath: 'public',
+                            name: '[name].[ext]'
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(mp4|webm|ogg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'public',
+                            name: '[name].[ext]'
                         },
                     },
                 ],
@@ -52,6 +65,7 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     devServer: {
+        contentBase: path.join(__dirname, './src/'),
         publicPath: '/',
         compress: true,
         port: 9000
@@ -59,12 +73,17 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         }),
         new HtmlWebpackPlugin({
             template: "./src/index.html"
         }),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
     ]
 };
