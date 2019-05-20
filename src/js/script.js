@@ -24,4 +24,7 @@ $(function () {
         else
             video.pause();
     });
+    $('.menu-toggler').click(function () {
+        $('.outer-container').toggleClass('menu-open');
+    });
 });

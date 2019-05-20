@@ -36,13 +36,28 @@ html, body {
     margin: 0;
     color: #ffffff;
     font-family: Harmonia Sans Pro Cyr, sans-serif;
+    background-color: #E9E9E9;
 }
 a {
     color: #ffffff;
     text-decoration: none;
 }
+.outer-container {
+    -webkit-perspective: 1500px;
+    perspective: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+}
 .main-content {
     position: relative;
+    min-height: 100vh;
+    z-index: 1;
+    transition: transform 0.5s;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 /* slider */
 .main-content .bg-slider-container {
@@ -109,12 +124,12 @@ a {
 }
 .main-content .bg-slider video {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     opacity: 0.4;
 }
 .main-content .bg-slider .owl-dots {
     position: absolute;
-    bottom: 51px;
+    bottom: 5vh;
     left: 0;
     right: 0;
     display: flex;
@@ -158,6 +173,7 @@ a {
 .main-header .menu-toggler {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .main-header .menu-toggler .burger {
     margin-left: 17px;
@@ -182,4 +198,67 @@ a {
 }
 .main-header .menu-toggler .burger::after {
     top: 12px;
+}
+/* MAIN-CONTENT */
+.screen-content {
+    padding-left: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.screen-content .screen-content-header {
+    max-width: 651px;
+}
+.screen-content .screen-content-header::after {
+    content: '';
+    width: 100px;
+    height: 6px;
+    background-color: #ffffff;
+    margin: 62px 0;
+    display: block;
+}
+.screen-content h1 {
+    font-size: 60px;
+    line-height: 59px;
+    font-weight: bold;
+}
+.screen-content .main-activity {
+    max-width: 436px;
+    margin-bottom: 66px;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 28px;
+}
+.screen-content .register {
+    background-color: transparent;
+    border: 4px solid #005798;
+    padding: 14px 25px 10px 29px;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 28px;
+    vertical-align: center;
+    color: #ffffff;
+    transition-property: background-color, border-bottom-color, border-top-color, border-left-color, border-right-color;
+    transition-duration: 0.2s;
+}
+.screen-content .register:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #005798;
+}
+.screen-content .register .register-image {
+    margin-left: 12px;
+}
+.screen-content .footer {
+    position: absolute;
+    left: 10vw;
+    bottom: 29px;
+    font-size: 11px;
+    line-height: 16px;
+}
+/* MENU */
+
+/* MENU-RELATED EFFECTS */
+.outer-container.menu-open .main-content {
+    transform: translate3d(-450px, 0, -1100px) rotateY(40deg);
 }
