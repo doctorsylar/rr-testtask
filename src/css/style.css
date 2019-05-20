@@ -28,6 +28,12 @@
     font-style: italic;
     src: url("../public/fonts/HarmoniaSansProCyr-BoldIt.otf");
 }
+@font-face {
+    font-family: "Gotham Pro";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../public/fonts/GothamProBold.otf");
+}
 * {
     box-sizing: border-box;
 }
@@ -257,8 +263,103 @@ a {
     line-height: 16px;
 }
 /* MENU */
+.outer-container .menu {
+    position: absolute;
+    height: 100vh;
+    width: 40vw;
+    top: 0;
+    right: -40vw;
+    transition: right 0.5s;
+}
+.menu .menu-closer,
+.menu .menu-closer::before,
+.menu .menu-closer::after {
+    content: '';
+    position: absolute;
+}
+.menu .menu-closer {
+    top: 3vh;
+    right: 4vw;
+    transform: rotate(-45deg);
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+.menu .menu-closer::before,
+.menu .menu-closer::after {
+    background-color: #2E2E2E;
+}
+
+.menu .menu-closer::before {
+    left: 11px;
+    width: 2px;
+    height: 24px;
+    top: 0;
+}
+.menu .menu-closer::after {
+    top: 11px;
+    height: 2px;
+    width: 24px;
+    left: 0;
+}
+.menu .link-menus-container {
+    padding: 9vh 0 0 20%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu .link-menus-container .links-container {
+    width: 50%;
+}
+.menu .link-menus-container .links-container h2 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #00569B;
+}
+.menu .link-menus-container .links-container > ul {
+    list-style: none;
+    padding-left: 0;
+}
+.menu .link-menus-container .links-container a {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 15px;
+    color: #2E2E2E;
+    line-height: 40px;
+}
+.menu .link-menus-container .links-container a:hover::after {
+    content: '';
+    width: 100%;
+    background-color: #00569B;
+    height: 2px;
+    display: block;
+    margin-top: -2px;
+}
+.menu .call-order {
+    align-self: flex-end;
+}
+.menu .call-order .order-call {
+    border: none;
+    color: #005798;
+    padding:  10px 18px;
+    background: rgba(0, 87, 152, 0.11);
+    mix-blend-mode: normal;
+    border-radius: 1px;
+    cursor: pointer;
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 27px;
+}
+.menu .call-order .order-call > img {
+    vertical-align: middle;
+}
+/* popup registration */
 
 /* MENU-RELATED EFFECTS */
 .outer-container.menu-open .main-content {
     transform: translate3d(-450px, 0, -1100px) rotateY(40deg);
+}
+.outer-container.menu-open .menu {
+    right: 0;
 }

@@ -27,4 +27,9 @@ $(function () {
     $('.menu-toggler').click(function () {
         $('.outer-container').toggleClass('menu-open');
     });
+    $('.menu-closer').click(function () {
+        if ($('.outer-container').hasClass('menu-open')) {
+            $('.outer-container').removeClass('menu-open');
+        }
+    });
 });
