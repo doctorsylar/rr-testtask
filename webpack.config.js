@@ -58,6 +58,18 @@ module.exports = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.(otf)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'public/fonts',
+                            name: '[name].[ext]'
+                        },
+                    },
+                ],
             }
         ]
     },

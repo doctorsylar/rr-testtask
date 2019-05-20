@@ -1,13 +1,50 @@
+@font-face {
+    font-family: "Harmonia Sans Pro Cyr";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../public/fonts/HarmoniaSansProCyr-Regular.otf");
+}
+@font-face {
+    font-family: "Harmonia Sans Pro Cyr";
+    font-weight: 600;
+    font-style: normal;
+    src: url("../public/fonts/HarmoniaSansProCyr-SemiBd.otf");
+}
+@font-face {
+    font-family: "Harmonia Sans Pro Cyr";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../public/fonts/HarmoniaSansProCyr-Bold.otf");
+}
+@font-face {
+    font-family: "Harmonia Sans Pro Cyr";
+    font-weight: normal;
+    font-style: italic;
+    src: url("../public/fonts/HarmoniaSansProCyr-Italic.otf");
+}
+@font-face {
+    font-family: "Harmonia Sans Pro Cyr";
+    font-weight: bold;
+    font-style: italic;
+    src: url("../public/fonts/HarmoniaSansProCyr-BoldIt.otf");
+}
 * {
     box-sizing: border-box;
 }
 html, body {
     padding: 0;
     margin: 0;
+    color: #ffffff;
+    font-family: Harmonia Sans Pro Cyr, sans-serif;
+}
+a {
+    color: #ffffff;
+    text-decoration: none;
 }
 .main-content {
     position: relative;
 }
+/* slider */
 .main-content .bg-slider-container {
     top: 0;
     left: 0;
@@ -16,6 +53,7 @@ html, body {
     position: absolute;
     width: 100vw;
     height: 100vh;
+    z-index: -1;
 }
 .main-content .bg-slider .bg-slider--item {
     max-width: 100vw;
@@ -24,11 +62,11 @@ html, body {
     background-color: #000000;
 }
 .main-content .bg-slider .bg-slider--item .play-square {
-    width: 523px;
-    height: 523px;
+    width: 50vh;
+    height: 50vh;
     position: absolute;
-    left: calc(50% - 523px / 2);
-    top: calc(50% - 523px / 2);
+    left: calc(50% - 50vh / 2);
+    top: calc(50% - 50vh / 2);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transform: rotate(-45deg);
 }
@@ -55,7 +93,7 @@ html, body {
     border-width: 10px 0 10px 20px;
     border-style: solid ;
     border-color: transparent transparent transparent #ffffff;
-    transition: all 0.15s;
+    transition: all 0.2s;
     margin-left: 4px;
 }
 .main-content .bg-slider .bg-slider--item .play-square .play-button:hover .sign {
@@ -72,7 +110,7 @@ html, body {
 .main-content .bg-slider video {
     width: 100%;
     height: 100%;
-    opacity: 0.6;
+    opacity: 0.4;
 }
 .main-content .bg-slider .owl-dots {
     position: absolute;
@@ -90,4 +128,58 @@ html, body {
 }
 .main-content .bg-slider .owl-dot.active {
     background-color: #005798;
+}
+/* HEADER */
+.main-content .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 38px 58px;
+    font-weight: 600;
+}
+.main-header .header-logo > a {
+    display: flex;
+    align-items: center;
+}
+.main-header .header-logo > a > img {
+    margin-right: 18px;
+}
+.main-header .header-logo .company-name {
+    font-size: 18px;
+}
+.main-header .header-logo .company-desc {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+.main-header .header-leader > img,
+.main-header .header-leader-text {
+    vertical-align: middle;
+}
+.main-header .menu-toggler {
+    display: flex;
+    align-items: center;
+}
+.main-header .menu-toggler .burger {
+    margin-left: 17px;
+    position: relative;
+    width: 24px;
+    height: 16px;
+}
+.main-header .menu-toggler .burger .burger-bar,
+.main-header .menu-toggler .burger::before,
+.main-header .menu-toggler .burger::after {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+    height: 3px;
+    left: 0;
+    top: 0;
+    width: 24px;
+}
+.main-header .menu-toggler .burger::before {
+    top: 6px;
+    width: 14px;
+}
+.main-header .menu-toggler .burger::after {
+    top: 12px;
 }
