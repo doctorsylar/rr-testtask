@@ -86,14 +86,14 @@
                     <img class="register-image" src="./public/reg.png" alt="Зарегистрироваться">
                 </button>
             </div>
-            <div class="footer">
-                <div class="copyright">2018 © CносСтройИнвест
-                </div>
-                <div class="leader-statement">
-                    «Лидер демонтажной отрасли Санкт-Петербурга»
-                </div>
-            </div>
         </section>
+        <div class="footer">
+            <div class="copyright">2018 © CносСтройИнвест
+            </div>
+            <div class="leader-statement">
+                «Лидер демонтажной отрасли Санкт-Петербурга»
+            </div>
+        </div>
     </main>
     <aside class="menu">
         <div class="menu-closer"></div>
@@ -155,8 +155,44 @@
     </aside>
 </div>
 <div class="popup-registration">
-
+    <div class="popup-inner">
+        <div class="popup-head">
+            <h2>Регистрация</h2>
+            <div class="popup-closer"></div>
+        </div>
+        <div class="form-switcher">
+            <button class="company-switch form-switch">
+                Компания
+            </button>
+            <button class="fiz-switch form-switch active">
+                Физ. лицо
+            </button>
+        </div>
+        <form class="fiz-form">
+            <div class="fiz-name-container">
+                <label for="fiz-name" class="fiz-name-label">Имя</label>
+                <input name="fiz-name" type="text" id="fiz-name" placeholder="Например: Иван">
+            </div>
+            <div class="fiz-number-container">
+                <label for="fiz-number" class="fiz-number-label">Номер телефона</label>
+                <div class="number-plus">
+                    <div class="seven">+7</div>
+                    <input name="fiz-number" type="text" id="fiz-number" placeholder="ХХХ-ХХ-ХХ">
+                </div>
+            </div>
+            <div class="fiz-city-container">
+                <label for="fiz-city" class="fiz-city-label">Выберите регион</label>
+                <select name="fiz-city" id="fiz-city">
+                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                    <option value="Санкт-Петербург">Санкт-Петербург</option>
+                </select>
+            </div>
+            <div class="submit-container">
+                <button type="submit">Зарегистрироваться</button>
+            </div>
+        </form>
+    </div>
 </div>
-
 </body>
 </html>
